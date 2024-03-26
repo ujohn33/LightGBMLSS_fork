@@ -427,6 +427,8 @@ class LightGBMLSS:
         opt_param.params["opt_rounds"] = int(opt_param.params["opt_rounds"])
 
         print("    Value: {}".format(opt_param.value))
+        # print a normalized value of NLL
+        print("    Normalized Value: {}".format(opt_param.value / len(train_set.get_label())))
         print("    Params: ")
         for key, value in opt_param.params.items():
             print("    {}: {}".format(key, value))
