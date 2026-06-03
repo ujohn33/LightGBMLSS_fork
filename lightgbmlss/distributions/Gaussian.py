@@ -1,8 +1,10 @@
+import torch
 from torch.distributions import Normal as Gaussian_Torch
 from typing import List
 
 from .distribution_utils import DistributionClass
 from ..utils import *
+from typing import List
 
 
 class Gaussian(DistributionClass):
@@ -37,7 +39,6 @@ class Gaussian(DistributionClass):
                  response_fn: str = "exp",
                  loss_fn: str = "nll",
                  natural_gradient: bool = False,
-                 clip_value: float = None,
                  ):
 
         # Input Checks
@@ -69,7 +70,6 @@ class Gaussian(DistributionClass):
                          distribution_arg_names=list(param_dict.keys()),
                          loss_fn=loss_fn,
                          natural_gradient=natural_gradient,
-                         clip_value=clip_value,  
                          )
         
     def compute_fisher_information_matrix(self, predt: List[torch.Tensor]) -> List[torch.Tensor]:
