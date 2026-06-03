@@ -1,4 +1,6 @@
 from torch.distributions import Normal as Gaussian_Torch
+from typing import List
+
 from .distribution_utils import DistributionClass
 from ..utils import *
 
